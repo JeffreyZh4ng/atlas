@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//TODO: Need to find out what this users route is for
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// TODO: Need to find out what this users route is for
+var homePageRouter = require('./routes/home-page');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -20,9 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//TODO: Set up login page here
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// TODO: Set up login page here
+app.use('/', homePageRouter);
+app.use('/users', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

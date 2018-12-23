@@ -1,8 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+img.image {
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
-a {
-  color: #00B7FF;
+h1.test1 {
+  color: blue;
+}
+
+h1.test2 {
+  color: red;
 }
