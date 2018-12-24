@@ -1,6 +1,13 @@
 extends layout
 
 block content
-  img.image(src="/images/home-page-background.jpg")
-  h1.test1 "This is a test"
-  h1.test2 "This is test two"
+  h1 ATLAS
+  h2 Travel catered for you
+
+  form(method="post", action='/login')
+    input(type="text" placeholder="Enter Username" name="username")
+    input(type="password" placeholder="Enter Password" name="password")
+    button(type="submit") Login
+
+  button(type="button") Atlas for individuals
+  button(type="button") Atlas for business

@@ -1,15 +1,16 @@
-img.image {
-  padding: 0;
-  display: block;
-  margin: 0 auto;
-  max-height: 100%;
-  max-width: 100%;
-}
+/*img.image {*/
+  /*margin: 0 auto;*/
+  /*max-height: 100%;*/
+  /*max-width: 100%;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+/*}*/
 
-h1.test1 {
-  color: blue;
-}
-
-h1.test2 {
-  color: red;
+html {
+  background: url(/images/home-page-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
