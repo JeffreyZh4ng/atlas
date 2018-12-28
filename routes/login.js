@@ -3,10 +3,11 @@ var router = express.Router();
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : process.env.DB_HOST,
-  database : process.env.DB_NAME,
-  user     : process.env.DB_USER,
-  password : process.env.DB_PASSWORd,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  insecureAuth: false,
 });
 
 connection.connect(function(err) {
@@ -18,7 +19,12 @@ connection.connect(function(err) {
   console.log('Connected as id ' + connection.threadId);
 });
 
-function registerUser(email, password, firstName, lastName) {
+function registerUser() {
+  var email = document.getElementById("email_field").value;
+  var password = document.getElementById("password_field").value;
+  var firstName = document.getElementById("first_name").value;
+  var lastName = document.getElementById("last_name").value;
+
   var passwordHash = sha256(password);
   var createDate = new Date();
 
@@ -48,6 +54,7 @@ function userLogin(email, password) {
       var storedHash = results[0];
 
       if (sha256(password) === storedHash) {
+        console.log("Password was correct")
         // TODO: if the password hash matched the one retrieved from the database, log the user in
       } else {
         console.log("Password was wrong")
@@ -60,7 +67,7 @@ function userLogin(email, password) {
 
 /* GET users listing. */
  router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
+   res.render('home-page', {title: "Atlas"});
+ });
 
 module.exports = router;

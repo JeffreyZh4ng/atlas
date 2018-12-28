@@ -3,17 +3,21 @@ extends layout
 block content
   h1 ATLAS
   h2 Travel catered for you
+  //
+  //div(id="register_div" class="main-div")
+  //  h3 Register User
+  //  input(type="email" placeholder="Email" id="register_email")
+  //  input(type="password" placeholder="Password" id="register_password")
+  //
+  //  button(onclick="login()") Login to Account
 
-  header(class="header")
-    div
-      p test text
-    div
-      p test text 2
+  div(id="login_div" class="main-div")
+    h3 Register User
+    input(type="email" placeholder="Email" id="email_field")
+    input(type="password" placeholder="Password" id="password_field")
+    input(type="text" placeholder="First Name" id="first_name")
+    input(type="text" placeholder="Last Name" id="last_name")
 
-  form(method="post", action='/login')
-    input(type="text" placeholder="Enter Username" name="username")
-    input(type="password" placeholder="Enter Password" name="password")
-    button(type="submit") Login
+    button(onclick="registerUser()") Register Account
 
-  button(type="button") Atlas for individuals
-  button(type="button") Atlas for business
+  script(src="login.js")
