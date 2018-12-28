@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 // TODO: Need to find out what this users route is for
 var homePageRouter = require('./routes/home-page');
-var loginRouter = require('./routes/planner');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
