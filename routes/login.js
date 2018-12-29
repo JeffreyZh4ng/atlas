@@ -1,42 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  insecureAuth: false,
-});
+function registerUserOnClick() {
+  const button = document.getElementById('register_user');
+  console.log("TEST");
+  button.addEventListener('click', function (e) {
+    fetch('/register', {method: 'POST'})
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('Error connecting: ' + err.stack);
-    return;
-  }
+        .then(function (response) {
+          if (response.ok) {
+            console.log('click was recorded');
+            return;
+          }
+          throw new Error('Request failed.');
+        })
 
-  console.log('Connected as id ' + connection.threadId);
-});
-
-function registerUser() {
-  var email = document.getElementById("email_field").value;
-  var password = document.getElementById("password_field").value;
-  var firstName = document.getElementById("first_name").value;
-  var lastName = document.getElementById("last_name").value;
-
-  var passwordHash = sha256(password);
-  var createDate = new Date();
-
-  var insertQuery = 'INSERT INTO user_login_info VALES (${email}, ${passwordHash}, ${firstName}, ${lastName}, ' +
-      '${createDate})';
-
-  connection.query(insertQuery, function (error, results, fields) {
-    if (error)
-      throw error;
+        .catch(function (error) {
+          console.log(error);
+        });
   });
-
-  connection.end();
 }
 
 function userLogin(email, password) {
@@ -66,8 +48,30 @@ function userLogin(email, password) {
 }
 
 /* GET users listing. */
- router.get('/', function (req, res, next) {
-   res.render('home-page', {title: "Atlas"});
- });
+router.get('/', function (req, res, next) {
+  res.render('home-page', {title: "Atlas"});
+});
+
+router.get('/register', (req, res) => {
+  var email = document.getElementById("email_field").value;
+  var password = document.getElementById("password_field").value;
+  var firstName = document.getElementById("first_name").value;
+  var lastName = document.getElementById("last_name").value;
+
+  var passwordHash = sha256(password);
+  var createDate = new Date();
+
+  var insertQuery = 'INSERT INTO user_login_info VALES (${email}, ${passwordHash}, ${firstName}, ${lastName}, ' +
+      '${createDate})';
+
+  connection.query(insertQuery, function (error, results, fields) {
+    if (error) {
+      throw error;
+    }
+
+    console.log('User added to DB!');
+    res.sendStatus(200);
+  });
+});
 
 module.exports = router;
