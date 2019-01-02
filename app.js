@@ -39,8 +39,10 @@ connection.connect(function(err) {
 });
 
 //add all routing
-const routes = require('./routes/index');
-app.use('/', routes);
+const home = require('./routes/home');
+const login = require('./routes/login');
+app.use('/home', home);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
