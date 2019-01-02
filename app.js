@@ -38,11 +38,9 @@ connection.connect(function(err) {
   console.log('Connected as id ' + connection.threadId);
 });
 
-//add all routing
-const home = require('./routes/home');
-const login = require('./routes/login');
-app.use('/home', home);
-app.use('/login', login);
+//add routing
+const routes = require('./routes/index');
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

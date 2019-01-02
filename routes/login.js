@@ -1,21 +1,27 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Renders pages relating to login or user registration
+ */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log("/login")
-});
+/**
+ * Method that will render the login page
+ *
+ * @param request: Express request object
+ * @param response: Express response object
+ * @param next: Express callback
+ * @returns {Promise<void>}
+ */
+module.exports.loginUser = async (request, response, next) => {
+  response.render('login');
+};
 
-router.get('/login', function(req, res, next) {
-  console.log("/login/login")
-});
-
-router.get('/login/login', function(req, res, next) {
-  console.log("/login/login/login")
-});
-
-router.get('/login/login/login', function(req, res) {
-  console.log("/login/login/login/login")
-});
-
-module.exports = router;
+/**
+ * Method that will render the register user page
+ *
+ * @param request: Express request object
+ * @param response: Express response object
+ * @param next: Express callback
+ * @returns {Promise<void>}
+ */
+module.exports.registerUser = async (request, response, next) => {
+  response.render('register');
+};

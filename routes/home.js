@@ -1,21 +1,15 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Renders the home page
+ */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log("/home")
-});
-
-router.get('/home', function(req, res, next) {
-  console.log("/home/home")
-});
-
-router.get('/home/home', function(req, res, next) {
-  console.log("/home/home/home")
-});
-
-router.get('/home/home/home', function(req, res) {
-  console.log("/home/home/home/home")
-});
-
-module.exports = router;
+/**
+ * Method that will render the home page
+ *
+ * @param request: Express request object
+ * @param response: Express response object
+ * @param next: Express callback
+ * @returns {Promise<void>}
+ */
+module.exports.loadHomePage = async (request, response, next) => {
+  response.render('home', {title: "Atlas"});
+};
