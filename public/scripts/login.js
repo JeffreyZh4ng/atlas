@@ -1,9 +1,13 @@
+$(document).ready(function () {
+    $("#register_user").click(registerUser());
+});
+
+
 function registerUser() {
-    console.log('TEST');
-    var email = $("#email_field");
-    var password = $("#password_field");
-    var firstName = $("#first_name");
-    var lastName = $("#last_name");
+    var email = $(this).attr("email_field");
+    var password = $(this).attr("password_field");
+    var firstName = $(this).attr("first_name");
+    var lastName = $(this).attr("last_name");
 
     var passwordHash = sha256(password);
     var createDate = new Date();
