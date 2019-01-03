@@ -18,26 +18,6 @@ app.use(cookieParser());
 // Setting client-readings to client folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Establish connection to the mysql server
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  insecureAuth: false,
-});
-
-// Connect to the database
-connection.connect(function(err) {
-  if (err) {
-    console.error('Error connecting: ' + err.stack);
-    connection.end();
-  }
-
-  console.log('Connected as id ' + connection.threadId);
-});
-
 //add routing
 const routes = require('./routes/index');
 app.use('/', routes);
