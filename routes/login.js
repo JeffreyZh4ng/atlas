@@ -30,9 +30,10 @@ module.exports.registerUser = async (request, response, next) => {
 module.exports.registerSubmit = async (request, response, next) => {
   var email = request.body.email_field;
   var password = request.body.password_field;
-  var firstName = request.body.firstName;
-  var lastName = request.body.lastName;
+  var firstName = request.body.first_name;
+  var lastName = request.body.last_name;
   storeUserData(email, password, firstName, lastName);
 
+  console.log(request.body);
   response.sendStatus(200);
 };

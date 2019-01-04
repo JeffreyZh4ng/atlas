@@ -11,7 +11,6 @@ module.exports.storeUserData = function(email, password, firstName, lastName) {
         }
 
         console.log('User added to DB!');
-        connection.release();
     });
 };
 
@@ -37,7 +36,5 @@ module.exports.getUserData = function(email, password) {
             }
         }
     });
-
-    connection.release();
 };
 
