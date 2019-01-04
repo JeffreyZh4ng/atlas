@@ -1,6 +1,6 @@
 var connection = require('./connectionPool');
 
-module.exports.registerUser = function(email, password, firstName, lastName) {
+module.exports.storeUserData = function(email, password, firstName, lastName) {
     var createDate = new Date();
     var insertQuery = 'INSERT INTO user_login_info VALES (${email}, ${password}, ${firstName}, ${lastName}, ${createDate})';
 
@@ -14,7 +14,7 @@ module.exports.registerUser = function(email, password, firstName, lastName) {
     });
 };
 
-module.exports.userLogin = function(email, password) {
+module.exports.getUserData = function(email, password) {
     var loginQuery = 'SELECT password_hash FROM user_login_info WHERE email=${email}';
 
     connection.query(loginQuery, function (error, results) {
