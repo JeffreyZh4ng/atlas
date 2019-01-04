@@ -34,5 +34,5 @@ module.exports.registerSubmit = async (request, response, next) => {
   var lastName = request.body.lastName;
   storeUserData(email, password, firstName, lastName);
 
-  response.send(200);
+  response.sendStatus(200);
 };

@@ -1,8 +1,9 @@
 var connection = require('./connectionPool');
 
 module.exports.storeUserData = function(email, password, firstName, lastName) {
-    var createDate = new Date();
-    var insertQuery = 'INSERT INTO user_login_info VALES (${email}, ${password}, ${firstName}, ${lastName}, ${createDate})';
+    var createDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    var insertQuery = `INSERT INTO user_login_info VALUES ('${email}', '${password}', '${firstName}', '${lastName}', '${createDate}')`;
+    console.log(insertQuery);
 
     connection.query(insertQuery, function (error, results) {
         if (error) {
@@ -15,7 +16,7 @@ module.exports.storeUserData = function(email, password, firstName, lastName) {
 };
 
 module.exports.getUserData = function(email, password) {
-    var loginQuery = 'SELECT password_hash FROM user_login_info WHERE email=${email}';
+    var loginQuery = `SELECT password_hash FROM user_login_info WHERE email=${email}`;
 
     connection.query(loginQuery, function (error, results) {
         if (error) {

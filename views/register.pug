@@ -3,9 +3,9 @@ extends layout
 block content
     div(id="login_div" class="main-div")
         h3 Register User
-        form(action="/login/register/submit" method="post")
-            input(type="email" placeholder="Email" id="email_field")
-            input(type="password" placeholder="Password" id="password_field")
-            input(type="text" placeholder="First Name" id="first_name")
-            input(type="text" placeholder="Last Name" id="last_name")
-            input(type="submit" value="Register User")
+        input(type="email" placeholder="Email" name="email_field")
+        input(type="password" placeholder="Password" name="password_field")
+        input(type="text" placeholder="First Name" name="first_name")
+        input(type="text" placeholder="Last Name" name="last_name")
+
+        button(id="register_user") Register Account
