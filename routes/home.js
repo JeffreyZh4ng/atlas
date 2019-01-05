@@ -13,7 +13,3 @@
 module.exports.loadHomePage = async (request, response, next) => {
   response.render('home', {title: "Atlas"});
 };
-
-module.exports.handleRedirect = async (request, response, next) => {
-  return response.redirect(request.body.url);
-};
