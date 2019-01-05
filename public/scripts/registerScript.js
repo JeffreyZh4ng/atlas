@@ -18,6 +18,26 @@ $(document).ready(function () {
             error: function (error) {
                 console.log(error)
             }
-        })
-    })
+        });
+    });
+
+    $("#login_user").click(function () {
+        let data = {
+            email_field: $("#login_email_field").val(),
+            password_field: $("#login_password_field").val(),
+        };
+
+        $.ajax({
+            url: "/login/submit",
+            type: "POST",
+            data: data,
+            success: function (result) {
+                console.log(result)
+            },
+
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    });
 });

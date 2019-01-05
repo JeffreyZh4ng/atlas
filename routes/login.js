@@ -15,6 +15,14 @@ module.exports.loginUser = async (request, response, next) => {
   response.render('login');
 };
 
+module.exports.loginSubmit = async (request, response, next) => {
+  var email = request.body.email_field;
+  var password = request.body.password_field;
+  getUserData(email, password);
+
+  response.sendStatus(200);
+};
+
 /**
  * Method that will render the register user page
  *

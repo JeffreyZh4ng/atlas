@@ -25,19 +25,21 @@ module.exports.storeUserData = function(email, password, firstName, lastName) {
 };
 
 module.exports.getUserData = function(email, password) {
-    var loginQuery = `SELECT password_hash FROM user_login_info WHERE email=${email}`;
+    var loginQuery = `SELECT password_hash FROM user_login_info WHERE email='${email}'`;
     connection.query(loginQuery, function (error, results) {
         if (error) {
             throw error;
         }
 
-        if (results) {
+        console.log(results);
+        if (!results) {
             console.log("An account with this email does not exist!")
 
         } else {
-            let storedHash = results[0];
+            let storedHash = results[0].password_hash;
 
             bcrypt.compare(password, storedHash, function(err, res) {
+                console.log(storedHash);
                 if (res) {
                     console.log("Passwords match!");
                 } else {
