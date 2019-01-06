@@ -22,7 +22,7 @@ $(document).ready(function () {
     });
 
     $("#login_user").click(function () {
-        let data = {
+          let data = {
             email_field: $("#login_email_field").val(),
             password_field: $("#login_password_field").val(),
         };

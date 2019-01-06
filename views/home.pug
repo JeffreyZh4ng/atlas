@@ -1,9 +1,32 @@
 extends layout
 
 block content
-  h1 ATLAS
-  h2 Travel catered for you
-  h3 By Jeffrey Zhang
-
-  button(id="goto_login") Login to Atlas
-  button(id="goto_register") Create an account
+	nav.navbar.navbar-inverse.navbar-static-top
+		.container
+			.navbar-header
+				button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#') Atlas
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href='#') About
+					li.dropdown
+						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+							| Services
+							span.caret
+						ul.dropdown-menu
+							li
+								a(href='#') Design
+							li
+								a(href='#') Development
+							li
+								a(href='#') Consulting
+					li
+						a(href='#') Contact
+	.row.background-image
+	//	button(id="goto_login") Login to Atlas
+	//	button(id="goto_register") Create an account
