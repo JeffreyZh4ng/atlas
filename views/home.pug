@@ -15,8 +15,7 @@ block content
 					li
 						a(href='#') About
 					li.dropdown
-						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-							| Services
+						a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Services
 							span.caret
 						ul.dropdown-menu
 							li
@@ -27,6 +26,34 @@ block content
 								a(href='#') Consulting
 					li
 						a(href='#') Contact
-	.row.background-image
+
+	.jumbotron
+		.container
+			h1 Ready. Set. Code.
+			p
+				| Are you ready to boilerstrap your cross-compatible buzzword? We're Sassy, flat and semantic, so what are you waiting for?
+			br
+			a.btn.btn-primary.btn-lg(href='#', role='button') Download Free Trial »
+			a.btn.btn-primary.btn-lg(href='#', role='button') Learn more »
+
+	#content-bar.container
+		.row
+			.col-md-4
+				span.glyphicon.glyphicon-cloud(aria-hidden='true')
+				h3 Cloud Computable
+				p
+					| Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+			.col-md-4
+				span.glyphicon.glyphicon-floppy-disk(aria-hidden='true')
+				h3 Backwards Compatible
+				p
+					| Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Lorem ipsum dolor.
+			.col-md-4
+				span.glyphicon.glyphicon-console(aria-hidden='true')
+				h3 GUI Free
+				p
+					| Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+
+
 	//	button(id="goto_login") Login to Atlas
 	//	button(id="goto_register") Create an account

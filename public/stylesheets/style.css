@@ -3,7 +3,7 @@
 	/*width: 100%;*/
 /*}*/
 
-html {
+body {
 	background: url(/images/home-page-background.jpg);
 	background-size: cover;
 	background-position: center center;
@@ -12,7 +12,16 @@ html {
 	width: 100%;
 }
 
-.container {
-	background-color: transparent;
+.navbar {
 	margin-bottom: 0;
+}
+
+.jumbotron {
+	background: rgba(255, 255, 255, .8);
+	text-align: center;
+}
+
+#content-bar {
+	text-align: center;
+	color: black;
 }
