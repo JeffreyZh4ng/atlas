@@ -1,13 +1,9 @@
-/*html, body {*/
-	/*height: 100%;*/
-	/*width: 100%;*/
-/*}*/
-
 body {
 	background: url(/images/home-page-background.jpg);
 	background-size: cover;
-	background-position: center center;
 	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
 	height: 100%;
 	width: 100%;
 }
@@ -24,4 +20,10 @@ body {
 #content-bar {
 	text-align: center;
 	color: black;
+}
+
+.btn {
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 100px;
 }
